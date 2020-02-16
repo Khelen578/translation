@@ -10,8 +10,9 @@ import { SearchItem } from 'src/app/interfaces/search-item';
 export class DashboardComponent implements OnInit {
 
   searchResult: Array<SearchItem>;
-
+  searchResultCount: number;
   search: string;
+  lastSearch: string;
 
   constructor(private translationService: TranslationService) { }
 
@@ -23,6 +24,8 @@ export class DashboardComponent implements OnInit {
   onSubmit() {
     return this.translationService.search(this.search).subscribe(response => {
       this.searchResult = response.data;
+      this.searchResultCount = this.searchResult.length;
+      this.lastSearch = this.search;
     });
   }
 

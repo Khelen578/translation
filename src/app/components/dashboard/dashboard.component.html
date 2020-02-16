@@ -5,7 +5,7 @@
 		<input [disabled]="!searchValidation.valid" type="submit" class="btn btn-primary form-control my-2 text-center"
 			value="Recherche" />
 		<div *ngIf="searchResult.length !== 0" class="text-center">
-			<span style="font-weight: bold;">{{searchResult.length}}</span> résultats trouvés pour "{{search}}"
+			<span style="font-weight: bold;">{{searchResultCount}}</span> résultats trouvés pour "{{lastSearch}}"
 		</div>
 	</form>
 	<ng-container *ngIf="searchResult.length !== 0">
