@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   constructor(private translationService: TranslationService) { }
 
   ngOnInit() {
+    this.searchResult = new Array<SearchItem>();
     this.search = '';
   }
 

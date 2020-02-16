@@ -1,10 +1,15 @@
 <div class="container" (submit)="onSubmit()">
-	<form class="form-control p-3 my-3">
+	<form #searchValidation="ngForm" class="border p-3 my-3">
 		<input placeholder="word to search" type="text" name="search" id="search" [(ngModel)]="search"
-			class="form-control text-center" required>
-		<input type="submit" class="btn btn-primary form-control my-2 text-center" value="Recherche">
+			class="form-control text-center" required />
+		<input [disabled]="!searchValidation.valid" type="submit" class="btn btn-primary form-control my-2 text-center"
+			value="Recherche" />
+		<div *ngIf="searchResult.length !== 0" class="text-center">
+			<span style="font-weight: bold;">{{searchResult.length}}</span> résultats trouvés pour "{{search}}"
+		</div>
 	</form>
 	<ng-container *ngIf="searchResult.length !== 0">
+
 		<div *ngFor="let result of searchResult" class="card my-2 p-3">
 			<div>
 				<span style="font-weight: bold;">{{result.slug}} </span>({{result.japanese[0].reading}})
