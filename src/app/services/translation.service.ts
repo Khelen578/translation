@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, retry } from 'rxjs/internal/operators';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/internal/operators';
 import { Observable, throwError } from 'rxjs';
 import { SearchResult } from '../interfaces/search-result';
 
@@ -10,7 +10,7 @@ import { SearchResult } from '../interfaces/search-result';
 export class TranslationService {
 
   // Have to use proxy server, jisho.org does not allow CORS
-  private DOMAIN = 'http://localhost:3500';
+  private DOMAIN = 'http://93.29.84.137:3500';
   private SEARCH_URL = `${this.DOMAIN}/api/v1/search/words`;
 
   constructor(private http: HttpClient) { }
